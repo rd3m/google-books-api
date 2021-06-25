@@ -3,29 +3,41 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- <link rel="stylesheet" href="css/styles.css" /> -->
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous"
-        />
+        <link rel="stylesheet" href="css/grid.css" />
+        <link rel="stylesheet" href="css/card.css" />
         <title>Google Books API</title>
     </head>
     <body>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default"
-                    >Search</span
+        <header>
+            <h1>Google Books Search</h1>
+            <p>
+                Search below to return relevant results from the Google Books
+                API
+            </p>
+        </header>
+        <section>
+            <form id="apiForm" action="">
+                <input
+                    id="searchBox"
+                    type="text"
+                    class="form-control"
+                    placeholder="Find books!"
+                />
+
+                <button
+                    id="searchButton"
+                    class="btn btn-outline-secondary"
+                    type="button"
                 >
-            </div>
-            <input
-                type="text"
-                class="form-control"
-                aria-label="Default"
-                aria-describedby="inputGroup-sizing-default"
-            />
-        </div>
+                    Search
+                </button>
+            </form>
+        </section>
+        <section>
+            <div id="data" class="grid grid__3"></div>
+        </section>
     </body>
-    <script src="js/api.js"></script>
+    <script type="module" src="js/api.js"></script>
+    <script type="module" src="js/dom_main.js"></script>
+    <script type="module" src="js/dom_utils.js"></script>
 </html>

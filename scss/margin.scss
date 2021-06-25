@@ -1,0 +1,9 @@
+@use "sizes" as sizes;
+
+.m {
+    @each $name, $rem in sizes.$sizes {
+        &#{$name} {
+            margin: $rem;
+        }
+    }
+}

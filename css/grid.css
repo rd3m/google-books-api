@@ -1,0 +1,16 @@
+.grid {
+  text-align: center;
+  display: grid;
+  grid-gap: 10px;
+}
+.grid__1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+.grid__2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid__3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/*# sourceMappingURL=grid.css.map */

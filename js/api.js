@@ -1,5 +1,5 @@
-const search = (searchTerm) => {
-    const url = `https://www.googleapis.com/books/v1/volumes?q={${searchTerm}}&maxResults=12`;
+const getBooks = (searchTerm) => {
+    const url = `https://www.googleapis.com/books/v1/volumes?q={${searchTerm}}&maxResults=14`;
     return apiHandler(url);
 };
 
@@ -7,6 +7,7 @@ const apiHandler = async (url) => {
     const responsePromise = fetch(url);
     const response = await responsePromise; // Response Object
     const jsonResponse = await response.json();
+    console.log(jsonResponse); // view array of objects
     return getRelevantInfo(jsonResponse);
 };
 
@@ -20,4 +21,5 @@ const getRelevantInfo = (jsonResponse) => {
         };
     });
 };
-console.log(search("harry potter"));
+
+export default getBooks;

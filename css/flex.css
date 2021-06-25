@@ -1,0 +1,23 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex__column {
+  flex-direction: column;
+}
+.flex__row {
+  flex-direction: row;
+}
+.flex__spaced {
+  justify-content: space-around;
+}
+.flex__between {
+  justify-content: space-between;
+}
+.flex__center {
+  justify-content: center;
+}
+.flex__align-center {
+  align-items: center;
+  text-align: center;
+}

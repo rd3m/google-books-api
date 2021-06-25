@@ -1,0 +1,20 @@
+@use "palette" as palette;
+
+.btn {
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 5%;
+    background-color: palette.$primary-color;
+
+    &__primary {
+        background-color: palette.$primary-color;
+    }
+
+    &__secondary {
+        background-color: palette.$secondary-color;
+    }
+
+    &:hover {
+        font-weight: bold;
+    }
+}
