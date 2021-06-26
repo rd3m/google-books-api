@@ -3,6 +3,7 @@ import {
     createElementWithText,
     createImgTag,
     clearResults,
+    createErrorMessage,
 } from "./dom_utils.js";
 
 const searchButton = document.getElementById("searchButton");
@@ -23,7 +24,9 @@ const fetchAndRender = async (event) => {
     const books = await getBooks(searchTerm);
     const dataOutput = document.getElementById("data");
     clearResults(dataOutput);
-    renderResults(books, dataOutput);
+    books === null
+        ? createErrorMessage(dataOutput)
+        : renderResults(books, dataOutput);
 };
 
 const renderResults = (results, output) => {

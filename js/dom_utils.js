@@ -7,10 +7,16 @@ export const createElementWithText = (type, text) => {
 
 export const createImgTag = (source) => {
     const img = document.createElement("img");
-    img.src = source;
+    source.includes("http")
+        ? (img.src = source)
+        : (img.alt = "Image not found");
     return img;
 };
 
 export const clearResults = (output) => {
     return (output.innerHTML = "");
+};
+
+export const createErrorMessage = (parent) => {
+    parent.appendChild(createElementWithText("H3", "No results returned"));
 };

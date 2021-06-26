@@ -1,5 +1,5 @@
 const getBooks = (searchTerm) => {
-    const url = `https://www.googleapis.com/books/v1/volumes?q={${searchTerm}}&maxResults=14`;
+    const url = `https://www.googleapis.com/books/v1/volumes?q={${searchTerm}}&maxResults=15`;
     return apiHandler(url);
 };
 
@@ -7,18 +7,25 @@ const apiHandler = async (url) => {
     const responsePromise = fetch(url);
     const response = await responsePromise; // Response Object
     const jsonResponse = await response.json();
-    console.log(jsonResponse); // view array of objects
-    return getRelevantInfo(jsonResponse);
+    console.log(jsonResponse.items); // view array of objects
+    return jsonResponse.items !== undefined
+        ? getRelevantInfo(jsonResponse)
+        : null;
 };
 
 const getRelevantInfo = (jsonResponse) => {
     return jsonResponse.items.map((item) => {
-        return {
-            title: item.volumeInfo.title,
-            image: item.volumeInfo.imageLinks.thumbnail,
-            author: item.volumeInfo.authors.join(", "),
-            description: item.volumeInfo.description,
+        const book = {
+            title: null,
+            image: null,
+            author: null,
+            description: null,
         };
+        book.title = item.volumeInfo?.title || book.title;
+        book.image = item.volumeInfo?.imageLinks?.thumbnail || book.image;
+        book.author = item.volumeInfo?.authors?.join(", ") || book.author;
+        book.description = item.volumeInfo?.description || book.description;
+        return book;
     });
 };
 
