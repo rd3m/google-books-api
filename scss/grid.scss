@@ -1,17 +1,11 @@
 .grid {
     text-align: center;
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 3vw;
 
-    &__1 {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    &__2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    &__3 {
-        grid-template-columns: repeat(3, 1fr);
+    @for $i from 1 through 8 {
+        &__#{$i} {
+            grid-template-columns: repeat(#{$i}, 1fr);
+        }
     }
 }

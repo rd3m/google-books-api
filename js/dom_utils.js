@@ -20,3 +20,13 @@ export const clearResults = (output) => {
 export const createErrorMessage = (parent) => {
     parent.appendChild(createElementWithText("H3", "No results returned"));
 };
+
+export const truncate = (str, max) => {
+    if (str !== null) {
+        return str.length < max
+            ? str
+            : `${str.substr(0, str.substr(0, max).lastIndexOf(" "))} [...]`;
+    } else return null;
+};
+
+export const removeElements = (className) => {};

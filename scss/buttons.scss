@@ -4,14 +4,10 @@
     display: inline-block;
     padding: 1rem;
     border-radius: 5%;
-    background-color: palette.$primary-color;
-
-    &__primary {
-        background-color: palette.$primary-color;
-    }
+    background-color: palette.$c--2;
 
     &__secondary {
-        background-color: palette.$secondary-color;
+        background-color: palette.$c--3;
     }
 
     &:hover {

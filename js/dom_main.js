@@ -4,17 +4,21 @@ import {
     createImgTag,
     clearResults,
     createErrorMessage,
+    truncate,
 } from "./dom_utils.js";
 
 const searchButton = document.getElementById("searchButton");
 
-const createCard = (parent, image, title, author, description) => {
+const createCard = (parent, image, title, author, description, index) => {
     const card = document.createElement("div");
-    card.classList.add("card");
-    card.appendChild(image);
-    card.appendChild(title);
-    card.appendChild(author);
-    card.appendChild(description);
+    card.addEventListener("click", function () {
+        moreDetails(index);
+    });
+    card.classList.add("card", `${index}`);
+    card.appendChild(image).classList.add("card--img");
+    card.appendChild(title).classList.add("card--title");
+    card.appendChild(author).classList.add("card--subtitle");
+    card.appendChild(description).classList.add("card--body");
     parent.appendChild(card);
 };
 
@@ -34,9 +38,28 @@ const renderResults = (results, output) => {
         const image = createImgTag(results[i].image);
         const title = createElementWithText("H3", results[i].title);
         const author = createElementWithText("H5", results[i].author);
-        const description = createElementWithText("P", results[i].description);
-        createCard(output, image, title, author, description);
+        const description = createElementWithText(
+            "P",
+            truncate(results[i].description, 300)
+        );
+        const index = [i];
+        createCard(output, image, title, author, description, index);
     }
+};
+
+const moreDetails = (index) => {
+    const dataOutput = document.getElementById("data");
+    dataOutput.classList.add("grid__1");
+    dataOutput.classList.remove("grid__3");
+    const cards = document.getElementsByClassName("card");
+    console.log(cards);
+    const indexString = index.join();
+    // for (let card in cards) {
+    //     if (!card.classList.contains(`${indexString}`)) {
+    //         card.classList.remove("card");
+    //     }
+    // }
+    console.log(typeof index.join());
 };
 
 searchButton.addEventListener("click", fetchAndRender);

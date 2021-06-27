@@ -1,7 +1,7 @@
 .grid {
   text-align: center;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 3vw;
 }
 .grid__1 {
   grid-template-columns: repeat(1, 1fr);
@@ -12,5 +12,18 @@
 .grid__3 {
   grid-template-columns: repeat(3, 1fr);
 }
-
-/*# sourceMappingURL=grid.css.map */
+.grid__4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid__5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid__6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+.grid__7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+.grid__8 {
+  grid-template-columns: repeat(8, 1fr);
+}

@@ -2,13 +2,10 @@
   display: inline-block;
   padding: 1rem;
   border-radius: 5%;
-  background-color: lightblue;
-}
-.btn__primary {
-  background-color: lightblue;
+  background-color: #2541b2;
 }
 .btn__secondary {
-  background-color: pink;
+  background-color: #1768ac;
 }
 .btn:hover {
   font-weight: bold;
