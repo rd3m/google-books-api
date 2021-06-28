@@ -29,4 +29,16 @@ export const truncate = (str, max) => {
     } else return null;
 };
 
-export const removeElements = (className) => {};
+export const addClasses = (array, className) => {
+    let i = array.length;
+    while (i--) {
+        array[i].classList.add(className);
+    }
+};
+
+export const removeClasses = (array, className) => {
+    let i = array.length;
+    while (i--) {
+        array[i].classList.remove(className);
+    }
+};

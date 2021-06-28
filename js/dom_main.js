@@ -5,6 +5,7 @@ import {
     clearResults,
     createErrorMessage,
     truncate,
+    addClasses,
 } from "./dom_utils.js";
 
 const searchButton = document.getElementById("searchButton");
@@ -12,7 +13,7 @@ const searchButton = document.getElementById("searchButton");
 const createCard = (parent, image, title, author, description, index) => {
     const card = document.createElement("div");
     card.addEventListener("click", function () {
-        moreDetails(index);
+        toggleModal(index);
     });
     card.classList.add("card", `${index}`);
     card.appendChild(image).classList.add("card--img");
@@ -47,19 +48,15 @@ const renderResults = (results, output) => {
     }
 };
 
-const moreDetails = (index) => {
+const toggleModal = (index) => {
     const dataOutput = document.getElementById("data");
     dataOutput.classList.add("grid__1");
     dataOutput.classList.remove("grid__3");
     const cards = document.getElementsByClassName("card");
+    addClasses(cards, "card--hide");
+    cards[index].classList.add("card--more-details");
+    cards[index].classList.toggle("card--hide");
     console.log(cards);
-    const indexString = index.join();
-    // for (let card in cards) {
-    //     if (!card.classList.contains(`${indexString}`)) {
-    //         card.classList.remove("card");
-    //     }
-    // }
-    console.log(typeof index.join());
 };
 
 searchButton.addEventListener("click", fetchAndRender);
