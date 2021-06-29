@@ -1,15 +1,16 @@
 @use "palette" as palette;
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import "typography";
 
-.card,
-.card--more-details {
-    border: 5px solid palette.$c--1;
+.card {
+    border: 5px solid palette.$c--3;
     border-radius: 5px;
-    background-color: lighten(palette.$c--4, 50%);
-    color: palette.$c--2;
-    font-family: "Poppins", sans-serif;
-    padding: 10%;
+    background-color: palette.$c--1;
+    color: palette.$c--3;
+    padding: 5%;
+    max-height: 60vh;
+    overflow: auto;
     cursor: pointer;
+    box-shadow: 3px 3px 5px 6px #ccc;
 
     &--img {
         margin: 6%;

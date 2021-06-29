@@ -1,31 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-.card,
-.card--more-details {
-  border: 5px solid #03256c;
-  border-radius: 5px;
-  background-color: #e8fbfe;
-  color: #2541b2;
+* {
   font-family: "Poppins", sans-serif;
-  padding: 10%;
-  cursor: pointer;
 }
-.card--img,
-.card--more-details--img {
+
+h1,
+h4 {
+  color: #223745;
+}
+
+.card {
+  border: 5px solid #e0d2b4;
+  border-radius: 5px;
+  background-color: #223745;
+  color: #e0d2b4;
+  padding: 5%;
+  max-height: 60vh;
+  overflow: auto;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+.card--img {
   margin: 6%;
 }
-.card--title,
-.card--more-details--title {
+.card--title {
   font-size: 1.5rem;
 }
-.card--subtitle,
-.card--more-details--subtitle {
+.card--subtitle {
   font-size: 1.2rem;
 }
-.card--body,
-.card--more-details--body {
+.card--body {
   font-size: 1rem;
 }
-.card--hide,
-.card--more-details--hide {
+.card--hide {
   display: none;
 }

@@ -1,11 +1,23 @@
+@use "devices" as devices;
+
 .grid {
     text-align: center;
     display: grid;
     grid-gap: 3vw;
 
-    @for $i from 1 through 8 {
-        &__#{$i} {
-            grid-template-columns: repeat(#{$i}, 1fr);
-        }
+    @include devices.phone {
+        grid-template-columns: 1fr;
+    }
+
+    @include devices.tablet {
+        grid-template-columns: 1fr;
+    }
+
+    @include devices.tablet-landscape {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include devices.desktop {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

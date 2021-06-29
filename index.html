@@ -5,18 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/grid.css" />
         <link rel="stylesheet" href="css/card.css" />
+        <link rel="stylesheet" href="css/flex.css" />
+        <link rel="stylesheet" href="css/buttons.css" />
+        <link rel="stylesheet" href="css/margin.css" />
         <title>Google Books API</title>
     </head>
     <body>
-        <header>
-            <h1>Google Books Search</h1>
-            <p>
-                Search below to return relevant results from the Google Books
-                API
-            </p>
+        <header class="flex flex__column flex__align-center">
+            <div>
+                <h1>Google Books Search</h1>
+            </div>
+            <div>
+                <h4>
+                    Search below to return relevant results from the Google
+                    Books API.
+                </h4>
+                <h4>Click on a book for more info.</h4>
+            </div>
         </header>
-        <section>
-            <form id="apiForm" action="">
+        <section class="flex flex__column flex__align-center m12">
+            <form class="">
                 <input
                     id="searchBox"
                     type="text"
@@ -24,17 +32,13 @@
                     placeholder="Find books!"
                 />
 
-                <button
-                    id="searchButton"
-                    class="btn btn-outline-secondary"
-                    type="button"
-                >
+                <button id="searchButton" class="btn btn__primary m10">
                     Search
                 </button>
             </form>
         </section>
         <section>
-            <div id="data" class="grid grid__3"></div>
+            <div id="data" class="grid"></div>
         </section>
     </body>
     <script type="module" src="js/api.js"></script>

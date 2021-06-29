@@ -25,7 +25,7 @@ export const truncate = (str, max) => {
     if (str !== null) {
         return str.length < max
             ? str
-            : `${str.substr(0, str.substr(0, max).lastIndexOf(" "))} [...]`;
+            : `${str.substr(0, str.substr(0, max).lastIndexOf(" "))}...`;
     } else return null;
 };
 

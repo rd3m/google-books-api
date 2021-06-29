@@ -1,12 +1,16 @@
 .btn {
   display: inline-block;
-  padding: 1rem;
   border-radius: 5%;
-  background-color: #2541b2;
+  background-color: #223745;
+}
+.btn__primary {
+  color: #e0d2b4;
+  background-color: #223745;
 }
 .btn__secondary {
-  background-color: #1768ac;
+  background-color: #e0d2b4;
 }
 .btn:hover {
-  font-weight: bold;
+  font-weight: bolder;
+  cursor: pointer;
 }

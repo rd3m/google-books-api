@@ -1,6 +1,19 @@
-const getBooks = (searchTerm) => {
-    const url = `https://www.googleapis.com/books/v1/volumes?q={${searchTerm}}&maxResults=15`;
-    return apiHandler(url);
+const getRelevantInfo = (jsonResponse) => {
+    return jsonResponse.items.map((item) => {
+        const book = {
+            title: null,
+            image: null,
+            author: null,
+            description: null,
+            link: null,
+        };
+        book.title = item.volumeInfo?.title || book.title;
+        book.image = item.volumeInfo?.imageLinks?.thumbnail || book.image;
+        book.author = item.volumeInfo?.authors?.join(", ") || book.author;
+        book.description = item.volumeInfo?.description || book.description;
+        book.link = item.volumeInfo?.infoLink || book.link;
+        return book;
+    });
 };
 
 const apiHandler = async (url) => {
@@ -13,20 +26,9 @@ const apiHandler = async (url) => {
         : null;
 };
 
-const getRelevantInfo = (jsonResponse) => {
-    return jsonResponse.items.map((item) => {
-        const book = {
-            title: null,
-            image: null,
-            author: null,
-            description: null,
-        };
-        book.title = item.volumeInfo?.title || book.title;
-        book.image = item.volumeInfo?.imageLinks?.thumbnail || book.image;
-        book.author = item.volumeInfo?.authors?.join(", ") || book.author;
-        book.description = item.volumeInfo?.description || book.description;
-        return book;
-    });
+const getBooks = (searchTerm) => {
+    const url = `https://www.googleapis.com/books/v1/volumes?q={${searchTerm}}&maxResults=15`;
+    return apiHandler(url);
 };
 
 export default getBooks;

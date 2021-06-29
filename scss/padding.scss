@@ -1,9 +1,0 @@
-@use "sizes" as sizes;
-
-.p {
-    @each $name, $rem in sizes.$sizes {
-        &#{$name} {
-            padding: $rem;
-        }
-    }
-}
