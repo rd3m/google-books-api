@@ -27,7 +27,7 @@ const apiHandler = async (url) => {
 };
 
 const getBooks = (searchTerm) => {
-    const url = `https://www.googleapis.com/books/v1/volumes?q={${searchTerm}}&maxResults=15`;
+    const url = `https://www.googleapis.com/books/v1/volumes?q={${searchTerm}}&maxResults=18`;
     return apiHandler(url);
 };
 
